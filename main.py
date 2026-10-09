@@ -26,7 +26,8 @@ def get_grade(prompt):
     while True:
         try:
             grade = float(input(prompt))
-            if 1.00 <= grade <= 5.00 and abs(grade * 4 - round(grade * 4)) < 1e-9:
+            is_quarter_increment = abs(grade * 4 - round(grade * 4)) < 1e-9
+            if 1.00 <= grade <= 5.00 and is_quarter_increment:
                 return grade
             print("Enter a grade from 1.00 to 5.00 in 0.25 increments.")
         except ValueError:
@@ -36,7 +37,7 @@ def get_grade(prompt):
 def get_student_information():
     """Collect and return basic student information."""
     print("\nStudent Information")
-    print("-" * 48)
+    print("-" * 64)
     return {
         "name": get_non_empty_text("Student name: "),
         "student_id": get_non_empty_text("Student ID: "),
@@ -94,32 +95,48 @@ def get_remark(gwa):
     return "At Risk / Review Required"
 
 
+def display_results(student, subjects, total_units, total_weighted_grades, gwa):
+    """Display all results in organized console sections."""
+    print("\n" + "=" * 64)
+    print("                 STUDENT GRADE / GWA CALCULATOR")
+    print("=" * 64)
+    print("\nStudent Information")
+    print("-" * 64)
+    print(f"Name:       {student['name']}")
+    print(f"Student ID: {student['student_id']}")
+    print(f"Course:     {student['course']}")
+    print(f"Year Level: {student['year_level']}")
+
+    print("\nSubject Results")
+    print("-" * 64)
+    print(f"{'Subject':<28}{'Units':>8}{'Grade':>10}{'Weighted':>14}")
+    print("-" * 64)
+    for subject in subjects:
+        print(
+            f"{subject['name'][:27]:<28}"
+            f"{subject['units']:>8}"
+            f"{subject['grade']:>10.2f}"
+            f"{subject['weighted_grade']:>14.2f}"
+        )
+
+    print("-" * 64)
+    print(f"Total Units:            {total_units}")
+    print(f"Total Weighted Grades:  {total_weighted_grades:.2f}")
+    print(f"GWA:                    {gwa:.2f}")
+    print(f"Remark:                 {get_remark(gwa)}")
+    print("=" * 64)
+    print("Note: Remarks are examples. Follow your school's official rules.")
+
+
 def main():
-    print("=" * 48)
-    print("       STUDENT GRADE / GWA CALCULATOR")
-    print("=" * 48)
+    """Run the calculator from start to finish."""
+    print("=" * 64)
+    print("                 STUDENT GRADE / GWA CALCULATOR")
+    print("=" * 64)
     student = get_student_information()
     subjects = get_subjects()
     total_units, total_weighted_grades, gwa = calculate_gwa(subjects)
-
-    print("\nStudent details entered:")
-    print(f"Name: {student['name']}")
-    print(f"Student ID: {student['student_id']}")
-    print(f"Course: {student['course']}")
-    print(f"Year level: {student['year_level']}")
-
-    print("\nSubjects entered:")
-    for subject in subjects:
-        print(
-            f"{subject['name']} | Units: {subject['units']} | "
-            f"Grade: {subject['grade']:.2f} | "
-            f"Weighted grade: {subject['weighted_grade']:.2f}"
-        )
-
-    print(f"\nTotal units: {total_units}")
-    print(f"Total weighted grades: {total_weighted_grades:.2f}")
-    print(f"GWA: {gwa:.2f}")
-    print(f"Remark: {get_remark(gwa)}")
+    display_results(student, subjects, total_units, total_weighted_grades, gwa)
 
 
 if __name__ == "__main__":
