@@ -21,8 +21,6 @@ Open a terminal in the project directory:
 python main.py
 ```
 
-On Windows, `py main.py` may be used if `python` is not recognized.
-
 ## Formula
 
 For each subject:
