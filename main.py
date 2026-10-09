@@ -55,9 +55,20 @@ def get_subjects():
         name = get_non_empty_text("Subject name: ")
         units = get_positive_integer("Units: ")
         grade = get_grade("Grade (1.00-5.00): ")
-        subjects.append({"name": name, "units": units, "grade": grade})
+        weighted_grade = calculate_weighted_grade(grade, units)
+        subjects.append({
+            "name": name,
+            "units": units,
+            "grade": grade,
+            "weighted_grade": weighted_grade
+        })
 
     return subjects
+
+
+def calculate_weighted_grade(grade, units):
+    """Calculate the weighted grade for one subject."""
+    return grade * units
 
 
 def main():
@@ -75,7 +86,11 @@ def main():
 
     print("\nSubjects entered:")
     for subject in subjects:
-        print(f"{subject['name']} | Units: {subject['units']} | Grade: {subject['grade']:.2f}")
+        print(
+            f"{subject['name']} | Units: {subject['units']} | "
+            f"Grade: {subject['grade']:.2f} | "
+            f"Weighted grade: {subject['weighted_grade']:.2f}"
+        )
 
 
 if __name__ == "__main__":
