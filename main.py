@@ -55,12 +55,11 @@ def get_subjects():
         name = get_non_empty_text("Subject name: ")
         units = get_positive_integer("Units: ")
         grade = get_grade("Grade (1.00-5.00): ")
-        weighted_grade = calculate_weighted_grade(grade, units)
         subjects.append({
             "name": name,
             "units": units,
             "grade": grade,
-            "weighted_grade": weighted_grade
+            "weighted_grade": calculate_weighted_grade(grade, units)
         })
 
     return subjects
@@ -71,12 +70,26 @@ def calculate_weighted_grade(grade, units):
     return grade * units
 
 
+def calculate_gwa(subjects):
+    """Return total units, total weighted grades, and GWA."""
+    total_units = 0
+    total_weighted_grades = 0
+
+    for subject in subjects:
+        total_units += subject["units"]
+        total_weighted_grades += subject["weighted_grade"]
+
+    gwa = total_weighted_grades / total_units
+    return total_units, total_weighted_grades, gwa
+
+
 def main():
     print("=" * 48)
     print("       STUDENT GRADE / GWA CALCULATOR")
     print("=" * 48)
     student = get_student_information()
     subjects = get_subjects()
+    total_units, total_weighted_grades, gwa = calculate_gwa(subjects)
 
     print("\nStudent details entered:")
     print(f"Name: {student['name']}")
@@ -91,6 +104,10 @@ def main():
             f"Grade: {subject['grade']:.2f} | "
             f"Weighted grade: {subject['weighted_grade']:.2f}"
         )
+
+    print(f"\nTotal units: {total_units}")
+    print(f"Total weighted grades: {total_weighted_grades:.2f}")
+    print(f"GWA: {gwa:.2f}")
 
 
 if __name__ == "__main__":
