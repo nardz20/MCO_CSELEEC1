@@ -85,14 +85,14 @@ def calculate_gwa(subjects):
 
 
 def get_remark(gwa):
-    """Return an example remark; schools may use different policy grade rules."""
+    """Return an grade remark; schools may use different policy grade rules."""
     if gwa <= 1.50:
         return "Excellent"
     elif gwa <= 2.50:
         return "Good Standing"
     elif gwa < 3.00:
         return "Needs Improvement"
-    return "Drop out"
+    return "Drop Out"
 
 
 def display_results(student, subjects, total_units, total_weighted_grades, gwa):
