@@ -46,12 +46,12 @@ GWA = `15.75 ÷ 9` = **1.75**.
 
 ## Grading scale and remarks
 
-The sample accepts grades from **1.00 to 5.00 in increments of 0.25**. Its illustrative remarks are:
+The grades accepts from **1.00 to 5.00 in increments of 0.25**. Here is the grading scale remarks below:
 
 - `1.00–1.50`: Excellent
 - Above `1.50` through `2.50`: Good Standing
 - Above `2.50` and below `3.00`: Needs Improvement
-- `3.00–5.00`: At Risk / Review Required
+- `3.00–5.00`: Drop Out
 
 ## Project files
 
