@@ -83,6 +83,17 @@ def calculate_gwa(subjects):
     return total_units, total_weighted_grades, gwa
 
 
+def get_remark(gwa):
+    """Return an example remark; institutions may use different rules."""
+    if gwa <= 1.50:
+        return "Excellent"
+    elif gwa <= 2.50:
+        return "Good Standing"
+    elif gwa < 3.00:
+        return "Needs Improvement"
+    return "At Risk / Review Required"
+
+
 def main():
     print("=" * 48)
     print("       STUDENT GRADE / GWA CALCULATOR")
@@ -108,6 +119,7 @@ def main():
     print(f"\nTotal units: {total_units}")
     print(f"Total weighted grades: {total_weighted_grades:.2f}")
     print(f"GWA: {gwa:.2f}")
+    print(f"Remark: {get_remark(gwa)}")
 
 
 if __name__ == "__main__":
