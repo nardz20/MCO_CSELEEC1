@@ -1,6 +1,6 @@
 # Student Grade / GWA Calculator
 
-A beginner-friendly Python console application that collects student details and subject grades, then calculates a General Weighted Average (GWA).
+A beginner-friendly Python CLI application that collects student details and subject grades, then calculates a General Weighted Average (GWA).
 
 ## Features
 
@@ -12,12 +12,6 @@ A beginner-friendly Python console application that collects student details and
 - GWA calculation
 - Example academic remarks
 - Organized console output
-
-## Requirements
-
-- Python 3.9 or later recommended
-- No third-party packages required
-- Git is optional for running the program, but required for the GitHub workflow
 
 ## How to run
 
@@ -59,8 +53,6 @@ The sample accepts grades from **1.00 to 5.00 in increments of 0.25**. Its illus
 - Above `2.50` and below `3.00`: Needs Improvement
 - `3.00–5.00`: At Risk / Review Required
 
-These thresholds are examples only, not an official school policy. Grading rules differ by institution; adjust them to match your school's requirements.
-
 ## Project files
 
 - `main.py` — application source code
@@ -68,18 +60,3 @@ These thresholds are examples only, not an official school policy. Grading rules
 - `TESTING.md` — manual testing checklist
 - `GITHUB_COMMITS.md` — commit history overview
 - `.gitignore` — ignores common local Python and editor files
-
-## Testing
-
-See `TESTING.md`. Do not claim a manual test passed until you have actually run it.
-
-## Development history
-
-This repository was built using ten progressive commits. Use `git log --oneline` to inspect the history.
-
-## Limitations
-
-- Console interface only
-- No database, API, or GUI
-- Student data is not saved after the program closes
-- Accuracy depends on correct input and the school's grading policy

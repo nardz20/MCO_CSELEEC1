@@ -18,14 +18,3 @@ Expected history, newest first:
 8. `Add subject input`
 9. `Add student information input`
 10. `Initial project setup`
-
-## Push this repository to your own GitHub
-
-Create an empty repository on GitHub, then run these commands from this folder. Replace the placeholder with your own repository URL.
-
-```bash
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
-```
-
-Do not run `git init` again inside this folder: the repository and its ten commits are already included.

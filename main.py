@@ -1,4 +1,4 @@
-"""Student Grade / GWA Calculator — beginner-friendly console application."""
+"""Student Grade / GWA Calculator — A CLI beginner-friendly application."""
 
 def get_non_empty_text(prompt):
     """Ask until the user enters non-empty text."""
@@ -85,14 +85,14 @@ def calculate_gwa(subjects):
 
 
 def get_remark(gwa):
-    """Return an example remark; institutions may use different rules."""
+    """Return an example remark; schools may use different policy grade rules."""
     if gwa <= 1.50:
         return "Excellent"
     elif gwa <= 2.50:
         return "Good Standing"
     elif gwa < 3.00:
         return "Needs Improvement"
-    return "At Risk / Review Required"
+    return "Drop out"
 
 
 def display_results(student, subjects, total_units, total_weighted_grades, gwa):
@@ -125,7 +125,6 @@ def display_results(student, subjects, total_units, total_weighted_grades, gwa):
     print(f"GWA:                    {gwa:.2f}")
     print(f"Remark:                 {get_remark(gwa)}")
     print("=" * 64)
-    print("Note: Remarks are examples. Follow your school's official rules.")
 
 
 def main():
