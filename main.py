@@ -35,7 +35,7 @@ def get_grade(prompt):
 
 
 def get_student_information():
-    """Collect and return basic student information."""
+    """Collect and return student information."""
     print("\nStudent Information")
     print("-" * 64)
     return {
