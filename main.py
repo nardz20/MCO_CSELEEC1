@@ -109,7 +109,7 @@ def display_results(student, subjects, total_units, total_weighted_grades, gwa):
 
     print("\nSubject Results")
     print("-" * 64)
-    print(f"{'Subject':<28}{'Units':>8}{'Grade':>10}{'Weighted':>14}")
+    print(f"{'Subject':<25}{'Units':>6}{'Grade':>9}{'Weighted':>12}")
     print("-" * 64)
     for subject in subjects:
         print(
