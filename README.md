@@ -56,5 +56,4 @@ The grades accepts from **1.00 to 5.00 in increments of 0.25**. Here is the grad
 - `main.py` — application source code
 - `README.md` — project documentation
 - `TESTING.md` — manual testing checklist
-- `GITHUB_COMMITS.md` — commit history overview
 - `.gitignore` — ignores common local Python and editor files
